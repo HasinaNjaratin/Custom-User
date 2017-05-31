@@ -1,0 +1,6 @@
+name: User custom module
+description: An experimental module to custom user forms and profile in drupal 8
+package: Custom
+type: module
+version: 1.0
+core: 8.x

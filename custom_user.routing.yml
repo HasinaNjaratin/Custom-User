@@ -1,0 +1,7 @@
+custom_user.content:
+  path: '/mesinformations'
+  defaults:
+    _controller: 'Drupal\custom_user\Controller\UserMenu::content'
+    _title: 'My page'
+  requirements:
+    _permission: 'access content'
