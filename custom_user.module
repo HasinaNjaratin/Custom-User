@@ -20,7 +20,7 @@ function custom_user_theme($existing, $type, $theme, $path) {
 function custom_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
     global $user;
     switch ($form_id) {
-        // login form
+        // login form 
         case 'user_login_form':
         break;
         // register form
