@@ -1,0 +1,44 @@
+<?php 
+
+/**
+ * Implements hook_theme().
+ **/
+function custom_user_theme($existing, $type, $theme, $path) {
+  return [
+    'user_prehome' => [
+      'variables' => ['intro' => '', 'loginForm' => [], 'registerForm' => []],
+    ],
+    'page_prehome' => [
+      'variables' => ['intro' => '', 'content' => []],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ **/
+function custom_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    global $user;
+    switch ($form_id) {
+        // login form
+        case 'user_login_form':
+        break;
+        // register form
+        case 'user_register_form':
+          $admin_context = \Drupal::service('router.admin_context');
+          if (!$admin_context->isAdminRoute()) {
+            unset($form['account']['status']);
+            unset($form['account']['roles']);
+          }
+        break;
+        default:
+        break;
+    }
+}
+
+function myprint($var=NULL,$die=TRUE){
+  print '<pre>';
+  print "---------START--------";
+  var_dump($var);
+  if($die){ die("die"); }else{ print '---------END---------'; }
+}

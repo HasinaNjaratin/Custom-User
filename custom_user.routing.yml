@@ -1,7 +1,7 @@
-custom_user.content:
-  path: '/mesinformations'
+custom_user.prehome:
+  path: '/prehome'
   defaults:
-    _controller: 'Drupal\custom_user\Controller\UserMenu::content'
-    _title: 'My page'
+    _controller: 'Drupal\custom_user\Controller\UserTemplate::prehome'
+    _title: 'Prehome'
   requirements:
     _permission: 'access content'

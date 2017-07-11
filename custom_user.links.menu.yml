@@ -1,6 +1,6 @@
 custom_user.admin:
-  title: 'Custom user module settings'
+  title: 'User in Prehome'
   description: 'To specify user form and profile'
   parent: system.admin_config_development
-  route_name: custom_user.content
+  route_name: custom_user.prehome
   weight: 100
