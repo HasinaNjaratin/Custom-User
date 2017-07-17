@@ -1,6 +1,5 @@
-custom_user.admin:
-  title: 'User in Prehome'
-  description: 'To specify user form and profile'
-  parent: system.admin_config_development
-  route_name: custom_user.prehome
+custom_user.fidele_register:
+  title: 'Devenir un membre fidèle'
+  menu_name: main
+  route_name: custom_user.fidele_register
   weight: 100

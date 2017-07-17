@@ -1,0 +1,79 @@
+{# File mail.html.twig #}
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+<!-- body -->
+<table>
+  <tr>
+    <td>
+      <!-- content -->
+      <div class="content">
+        <table>
+          {# Title #}
+          {% if title %}
+            <h1>{{ title }}</h1>
+          {% endif %}
+
+          {# Greeting #}
+          {% if greeting %}
+            <p>{{ greeting }},</p>
+          {% endif %}
+
+          {# Introduction #}
+          {% if introduction %}
+            <p>{{ introduction }}</p>
+          {% endif %}
+
+          {# content #}
+          {% if contenu is not empty  %}
+            <ul>
+            {% for key,value in contenu %}
+                <li><b>{{ key }} :</b> {{ value }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+
+          {# conclusion #}
+          {% if conclusion %}
+            <p>{{ conclusion }}</p>
+          {% endif %}
+
+          {# ending #}
+          <p>Cordialement,<br><a hreh="">HasinaNjaratin</a></p>
+        </table>
+      </div>
+      <!-- /content -->
+    </td>
+  </tr>
+</table>
+<!-- /body -->
+
+<!-- footer -->
+<table class="footer-wrap">
+  <tr>
+    <td class="container">
+      <!-- content -->
+      <div class="content">
+        <table>
+          <tr>
+            <td align="center">
+              <a href="">Visiter<a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- /content -->
+    </td>
+  </tr>
+</table>
+<!-- /footer -->
+
+
+</body>
+</html>

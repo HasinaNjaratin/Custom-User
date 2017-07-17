@@ -7,12 +7,10 @@
 namespace Drupal\custom_user\Controller;
  
 use Drupal\Core\Controller\ControllerBase;
- 
+use Drupal\custom_user\Form;
 class UserMenu extends ControllerBase {
-  public function content() {
-    return array(
-      '#type' => 'markup',
-      '#markup' => t('This is a test'),
-    );
+  public function fideleForm() {
+    $form = \Drupal::formBuilder()->getForm('\Drupal\custom_user\Form\UserFideleRegisterForm');
+    return $form;
   }
 }

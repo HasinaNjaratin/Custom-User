@@ -1,5 +1,9 @@
 <?php 
 
+if(!defined('LOGO_MAIL')){
+  define('LOGO_MAIL', base_path().drupal_get_path('module', 'custom_user')."/images/logo-mail.png");
+}
+
 /**
  * Implements hook_theme().
  **/
@@ -10,6 +14,9 @@ function custom_user_theme($existing, $type, $theme, $path) {
     ],
     'page_prehome' => [
       'variables' => ['intro' => '', 'content' => []],
+    ],
+    'user_mail_tpl' => [
+      'variables' => ['logo' => '', 'title' => '', 'greeting' => '', 'introduction' => '', 'contenu' => [], 'conclusion' => ''],
     ],
   ];
 }
@@ -29,11 +36,31 @@ function custom_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $fo
           if (!$admin_context->isAdminRoute()) {
             unset($form['account']['status']);
             unset($form['account']['roles']);
+            unset($form['field_date_de_naissance']);
+            unset($form['field_mobile']);
+            unset($form['field_nom']);
+            unset($form['field_prenom']);
           }
         break;
         default:
         break;
     }
+}
+
+/**
+* Implements hook_mail().
+*/
+function custom_user_mail($key, &$message, $params) {
+ $options = array(
+   'langcode' => $message['langcode'],
+ );
+ switch ($key) {
+   case 'accuse_inscription_fidele':
+     $message['from'] = \Drupal::config('system.site')->get('mail');
+     $message['subject'] = t('Accus&eacute; de reception de votre demande d\'inscription');
+     $message['body'][] = $params['message'];
+     break;
+ }
 }
 
 function myprint($var=NULL,$die=TRUE){

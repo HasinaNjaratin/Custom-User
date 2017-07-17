@@ -4,4 +4,11 @@ custom_user.prehome:
     _controller: 'Drupal\custom_user\Controller\UserTemplate::prehome'
     _title: 'Prehome'
   requirements:
+    _role: 'anonymous'
+custom_user.fidele_register:
+  path: '/devenir-membre-fidele'
+  defaults:
+    _controller: 'Drupal\custom_user\Controller\UserMenu::fideleForm'
+    _title: 'Devenir un membre fidèle'
+  requirements:
     _permission: 'access content'
